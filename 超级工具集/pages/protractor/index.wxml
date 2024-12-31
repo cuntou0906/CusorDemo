@@ -1,0 +1,59 @@
+<view class="protractor-container">
+  <!-- 量角器部分 -->
+  <view class="protractor-section">
+    <view class="protractor">
+      <view class="circle">
+        <!-- 刻度线 - 每1度一个刻度，从上方0度开始，顺时针旋转180度 -->
+        <view wx:for="{{360}}" wx:key="index" class="tick" style="transform: rotate({{(index + 180) % 360}}deg)">
+          <view class="tick-line {{index % 90 === 0 ? 'major' : (index % 10 === 0 ? 'medium' : '')}}"></view>
+          <text wx:if="{{index % 30 === 0}}" class="tick-text" style="transform: rotate(-{{(index + 180) % 360}}deg)">{{index}}°</text>
+        </view>
+        
+        <!-- 游标 - 添加180度的偏移 -->
+        <view class="cursor cursor-red" bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd" data-cursor="angle1" style="transform: rotate({{(angle1 - 180 + 360) % 360}}deg)">
+          <view class="cursor-line">
+            <view class="cursor-arrow"></view>
+          </view>
+          <view class="cursor-handle"></view>
+        </view>
+        
+        <view class="cursor cursor-blue" bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd" data-cursor="angle2" style="transform: rotate({{(angle2 - 180 + 360) % 360}}deg)">
+          <view class="cursor-line">
+            <view class="cursor-arrow"></view>
+          </view>
+          <view class="cursor-handle"></view>
+        </view>
+        
+        <!-- 中心点 -->
+        <view class="center-point"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 角度显示部分 -->
+  <view class="display-section">
+    <view class="angle-display">
+      <view class="angle-item red">
+        <view class="angle-label">
+          <view class="color-dot"></view>
+          <text class="label">红色游标</text>
+        </view>
+        <text class="value">{{angle1}}°</text>
+      </view>
+      <view class="angle-item blue">
+        <view class="angle-label">
+          <view class="color-dot"></view>
+          <text class="label">蓝色游标</text>
+        </view>
+        <text class="value">{{angle2}}°</text>
+      </view>
+      <view class="angle-item difference">
+        <view class="angle-label">
+          <view class="difference-icon">∠</view>
+          <text class="label">角度差</text>
+        </view>
+        <text class="value">{{angleDiff}}°</text>
+      </view>
+    </view>
+  </view>
+</view> 

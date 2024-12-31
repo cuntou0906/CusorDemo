@@ -1,0 +1,284 @@
+.flashlight-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+}
+
+.light-display {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 手电筒外形 */
+.flashlight-body {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scale: 0.6;
+}
+
+.flashlight-head {
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(45deg, #1a1a1a, #333);
+  border-radius: 50rpx;
+  position: relative;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.5);
+}
+
+.head-ring {
+  position: absolute;
+  top: 5rpx;
+  left: 5rpx;
+  right: 5rpx;
+  bottom: 5rpx;
+  border-radius: 50%;
+  border: 4rpx solid #444;
+}
+
+.head-lens {
+  position: absolute;
+  top: 15rpx;
+  left: 15rpx;
+  right: 15rpx;
+  bottom: 15rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.lens-effect {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #fff, transparent);
+}
+
+/* 手电筒主体 */
+.flashlight-main {
+  width: 60rpx;
+  margin-top: -2rpx;
+}
+
+.main-body {
+  height: 160rpx;
+  background: linear-gradient(90deg, #1a1a1a, #333);
+  border-radius: 8rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.3);
+}
+
+.main-grip {
+  height: 80rpx;
+  background: linear-gradient(90deg, #333, #444);
+  border-radius: 8rpx;
+  margin-top: 2rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.3);
+}
+
+/* 光束效果 */
+.light-beam {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 200vh;
+  height: 200vh;
+  transform: translateX(-50%);
+  transform-origin: 50% 0;
+  opacity: 0.9;
+  filter: blur(30rpx);
+}
+
+/* 添加光束的发散效果 */
+.light-beam::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(50rpx);
+}
+
+/* 控制面板美化 */
+.control-panel {
+  padding: 40rpx;
+  background: rgba(90, 88, 88, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.control-section {
+  margin-bottom: 40rpx;
+  background: rgba(50, 50, 50, 0.6);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  backdrop-filter: blur(10px);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.section-value {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 28rpx;
+}
+
+/* 颜色选择器美化 */
+.color-picker {
+  background: rgba(109, 108, 108, 0.6);
+  padding: 24rpx;
+  padding-bottom: 12rpx;
+  border-radius: 16rpx;
+  margin-bottom: 0rpx;
+  backdrop-filter: blur(10px);
+}
+
+.color-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  position: relative;
+  min-height: 80rpx;
+}
+
+.color-preview {
+  width: 200rpx;
+  position: absolute;
+  left: 25%;
+  transform: translateX(-50%);
+}
+
+.current-color {
+  width: 100%;
+  height: 80rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.color-sliders {
+  background: rgba(40, 40, 40, 0.8);
+  padding: 24rpx;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.slider-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.slider-item:last-child {
+  margin-bottom: 0;
+}
+
+.slider-label {
+  color: rgba(255, 255, 255, 0.8);
+  width: 40rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.slider-item slider {
+  flex: 1;
+  margin: 0 20rpx;
+}
+
+.preset-colors {
+  white-space: nowrap;
+  padding: 1rpx 0;
+  padding-top: 10rpx;
+  padding-left: 5rpx;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: visible;
+}
+
+.color-item {
+  display: inline-block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  margin-left: 10rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.2s ease;
+  transform-origin: center center;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.3);
+}
+
+.color-item.active {
+  transform: scale(1.1);
+  border-color: #fff;
+  box-shadow: 0 0 15rpx rgba(255, 255, 255, 0.6);
+  z-index: 1;
+}
+
+/* 添加数值显示相关样式 */
+.slider-value {
+  color: rgba(255, 255, 255, 0.6);
+  width: 60rpx;
+  text-align: right;
+  font-size: 28rpx;
+}
+
+/* 添加取色器按钮样式 */
+.picker-button {
+  width: 200rpx;
+  position: absolute;
+  left: 75%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16rpx 0;
+  background: rgba(60, 60, 60, 0.8);
+  border-radius: 8rpx;
+  color: #fff;
+  font-size: 28rpx;
+  height: 80rpx;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.picker-arrow {
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  transition: transform 0.3s ease;
+}
+
+.picker-arrow.up {
+  transform: rotate(180deg);
+}
+
+/* 修改颜色选择器样式 */
+.current-color {
+  width: 100%;
+  height: 80rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0.2);
+  /* 移除cursor: pointer */
+} 

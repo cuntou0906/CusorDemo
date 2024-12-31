@@ -1,0 +1,41 @@
+<view class="calculator">
+  <view class="display">
+    <text class="result">{{displayValue}}</text>
+  </view>
+  
+  <view class="keypad">
+    <view class="row">
+      <view class="key function" bindtap="handleClear">{{allClear ? 'AC' : 'C'}}</view>
+      <view class="key function" bindtap="handleToggleSign">±</view>
+      <view class="key function" bindtap="handlePercent">%</view>
+      <view class="key operator {{currentOperator === '÷' ? 'active' : ''}}" bindtap="handleOperator" data-operator="÷">÷</view>
+    </view>
+    
+    <view class="row">
+      <view class="key number" bindtap="handleNumber" data-number="7">7</view>
+      <view class="key number" bindtap="handleNumber" data-number="8">8</view>
+      <view class="key number" bindtap="handleNumber" data-number="9">9</view>
+      <view class="key operator {{currentOperator === '×' ? 'active' : ''}}" bindtap="handleOperator" data-operator="×">×</view>
+    </view>
+    
+    <view class="row">
+      <view class="key number" bindtap="handleNumber" data-number="4">4</view>
+      <view class="key number" bindtap="handleNumber" data-number="5">5</view>
+      <view class="key number" bindtap="handleNumber" data-number="6">6</view>
+      <view class="key operator {{currentOperator === '-' ? 'active' : ''}}" bindtap="handleOperator" data-operator="-">-</view>
+    </view>
+    
+    <view class="row">
+      <view class="key number" bindtap="handleNumber" data-number="1">1</view>
+      <view class="key number" bindtap="handleNumber" data-number="2">2</view>
+      <view class="key number" bindtap="handleNumber" data-number="3">3</view>
+      <view class="key operator {{currentOperator === '+' ? 'active' : ''}}" bindtap="handleOperator" data-operator="+">+</view>
+    </view>
+    
+    <view class="row">
+      <view class="key number zero" bindtap="handleNumber" data-number="0">0</view>
+      <view class="key number" bindtap="handleDecimal">.</view>
+      <view class="key operator" bindtap="handleEqual">=</view>
+    </view>
+  </view>
+</view> 

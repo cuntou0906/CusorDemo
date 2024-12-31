@@ -1,0 +1,279 @@
+.protractor-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+/* 量角器部分 */
+.protractor-section {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 120rpx;
+  box-sizing: border-box;
+}
+
+.protractor {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 100vw;
+  height: 100vw;
+  border-radius: 50%;
+  position: relative;
+  background: white;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.tick {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1rpx;
+  height: 50%;
+  transform-origin: bottom center;
+}
+
+.tick-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10rpx;
+  background: #ddd;
+}
+
+.tick-line.medium {
+  height: 20rpx;
+  width: 2rpx;
+  background: #999;
+}
+
+.tick-line.major {
+  height: 30rpx;
+  width: 3rpx;
+  background: #333;
+}
+
+.tick-text {
+  position: absolute;
+  top: 40rpx;
+  left: -30rpx;
+  width: 60rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.cursor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3rpx;
+  height: 50vw;
+  transform-origin: top center;
+  transition: transform 0.1s;
+}
+
+.cursor-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cursor-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 6rpx 200rpx 6rpx;
+  position: absolute;
+  bottom: 0;
+}
+
+.cursor-handle {
+  position: absolute;
+  bottom: 20rpx;
+  left: -23rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.2);
+}
+
+.cursor-red .cursor-line {
+  background: linear-gradient(to bottom, transparent, rgba(255, 68, 68, 0.3));
+}
+
+.cursor-red .cursor-arrow {
+  border-color: transparent transparent #ff4444 transparent;
+}
+
+.cursor-red .cursor-handle {
+  background: linear-gradient(45deg, #ff4444, #ff6666);
+}
+
+.cursor-blue .cursor-line {
+  background: linear-gradient(to bottom, transparent, rgba(68, 68, 255, 0.3));
+}
+
+.cursor-blue .cursor-arrow {
+  border-color: transparent transparent #4444ff transparent;
+}
+
+.cursor-blue .cursor-handle {
+  background: linear-gradient(45deg, #4444ff, #6666ff);
+}
+
+.center-point {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #333, #666);
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+}
+
+/* 角度显示部分 */
+.display-section {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.angle-display {
+  width: 90%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20rpx;
+  padding: 40rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.angle-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx;
+  margin: 20rpx 0;
+  border-radius: 16rpx;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.angle-item:last-child {
+  border-bottom: none;
+}
+
+.angle-item.red .value {
+  background: linear-gradient(45deg, #ff4444, #ff6666);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.angle-item.blue .value {
+  background: linear-gradient(45deg, #4444ff, #6666ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.angle-item.difference .value {
+  background: linear-gradient(45deg, #333333, #666666);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.angle-label {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.color-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+}
+
+.angle-item.red .color-dot {
+  background: linear-gradient(45deg, #ff4444, #ff6666);
+}
+
+.angle-item.blue .color-dot {
+  background: linear-gradient(45deg, #4444ff, #6666ff);
+}
+
+.difference-icon {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.value {
+  font-size: 56rpx;
+  font-weight: 600;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.angle-item.red .value {
+  background: linear-gradient(45deg, #ff4444, #ff6666);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.angle-item.blue .value {
+  background: linear-gradient(45deg, #4444ff, #6666ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.angle-item.difference .value {
+  background: linear-gradient(45deg, #333333, #666666);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* 优化刻度线 */
+.tick-line {
+  background: #ddd;
+  transition: height 0.2s;
+}
+
+.tick-line.medium {
+  background: #999;
+}
+
+.tick-line.major {
+  background: linear-gradient(to bottom, #333, #666);
+}
+
+/* 其他样式保持不变... */ 

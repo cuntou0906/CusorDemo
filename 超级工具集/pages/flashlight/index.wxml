@@ -1,0 +1,94 @@
+<view class="flashlight-container">
+  <!-- 手电筒显示区域 -->
+  <view class="light-display">
+    <!-- 手电筒外形 -->
+    <view class="flashlight-body">
+      <!-- 手电筒头部 -->
+      <view class="flashlight-head">
+        <view class="head-ring"></view>
+        <view class="head-lens" style="background: {{color}};">
+          <view class="lens-effect"></view>
+        </view>
+      </view>
+      <!-- 手电筒主体 -->
+      <view class="flashlight-main">
+        <view class="main-body"></view>
+        <view class="main-grip"></view>
+      </view>
+    </view>
+    <!-- 光束效果 -->
+    <view class="light-beam" style="background: radial-gradient(circle at 50% 0, {{color}}, transparent); opacity: {{brightness/100}};"></view>
+  </view>
+
+  <!-- 控制面板 -->
+  <view class="control-panel">
+    <!-- 亮度控制 -->
+    <view class="control-section">
+      <view class="section-header">
+        <text class="section-title">亮度</text>
+        <text class="section-value">{{brightness}}%</text>
+      </view>
+      <slider 
+        class="brightness-slider" 
+        min="0" 
+        max="100" 
+        value="{{brightness}}"
+        block-size="28"
+        activeColor="#FFD700"
+        backgroundColor="#333"
+        bindchange="onBrightnessChange"
+      />
+    </view>
+
+    <!-- 颜色选择 -->
+    <view class="control-section">
+      <view class="section-header">
+        <text class="section-title">颜色</text>
+        <text class="section-value">{{color}}</text>
+      </view>
+      <!-- 颜色选择器 -->
+      <view class="color-picker">
+        <view class="color-header">
+          <view class="color-preview">
+            <view class="current-color" style="background: {{color}}">
+              <!-- 移除十六进制值显示 -->
+            </view>
+          </view>
+          <view class="picker-button" bindtap="showColorPicker">
+            <text>取色器</text>
+            <text class="picker-arrow {{showPicker ? 'up' : ''}}">▼</text>
+          </view>
+        </view>
+        <!-- RGB取色器 -->
+        <view class="color-sliders" wx:if="{{showPicker}}">
+          <view class="slider-item">
+            <text class="slider-label">R</text>
+            <slider value="{{rgbValue.r}}" min="0" max="255" block-size="20" activeColor="#ff0000" backgroundColor="#333" bindchanging="onRChange"/>
+            <text class="slider-value">{{rgbValue.r}}</text>
+          </view>
+          <view class="slider-item">
+            <text class="slider-label">G</text>
+            <slider value="{{rgbValue.g}}" min="0" max="255" block-size="20" activeColor="#00ff00" backgroundColor="#333" bindchanging="onGChange"/>
+            <text class="slider-value">{{rgbValue.g}}</text>
+          </view>
+          <view class="slider-item">
+            <text class="slider-label">B</text>
+            <slider value="{{rgbValue.b}}" min="0" max="255" block-size="20" activeColor="#0000ff" backgroundColor="#333" bindchanging="onBChange"/>
+            <text class="slider-value">{{rgbValue.b}}</text>
+          </view>
+        </view>
+        <!-- 常用颜色 -->
+        <scroll-view scroll-x class="preset-colors">
+          <view 
+            wx:for="{{presetColors}}" 
+            wx:key="index"
+            class="color-item {{color === item ? 'active' : ''}}"
+            style="background-color: {{item}}"
+            bindtap="onColorSelect"
+            data-color="{{item}}"
+          ></view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view> 
