@@ -1,0 +1,198 @@
+.compass-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 218rpx 40rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.compass {
+  width: 600rpx;
+  height: 600rpx;
+  position: relative;
+  margin: 40rpx 0;
+}
+
+.compass-ring {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.tick {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2rpx;
+  height: 50%;
+  transform-origin: bottom center;
+}
+
+.tick-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15rpx;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.tick-line.major {
+  height: 30rpx;
+  width: 4rpx;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.tick-text {
+  position: absolute;
+  top: 40rpx;
+  left: -20rpx;
+  width: 40rpx;
+  text-align: center;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.compass-pointer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s;
+}
+
+.pointer-north {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 4rpx;
+  height: 40%;
+  background: linear-gradient(to bottom, #ff3b30, transparent);
+  transform: translateX(-50%);
+}
+
+.pointer-north::after {
+  content: '';
+  position: absolute;
+  top: -20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 20rpx 10rpx 0 10rpx;
+  border-color: #ff3b30 transparent transparent transparent;
+}
+
+.pointer-south {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 4rpx;
+  height: 40%;
+  background: linear-gradient(to top, #666, transparent);
+  transform: translateX(-50%);
+}
+
+.compass-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #666;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.direction-info {
+  margin-top: 60rpx;
+  text-align: center;
+}
+
+.heading {
+  display: block;
+  font-size: 72rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.degrees {
+  display: block;
+  font-size: 48rpx;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.calibrate-button {
+  margin-top: 60rpx;
+  padding: 20rpx 40rpx;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 40rpx;
+  color: #333;
+  font-size: 28rpx;
+  backdrop-filter: blur(10px);
+  width: 200rpx;
+  text-align: center;
+}
+
+.help-button {
+  margin-top: 20rpx;
+  padding: 20rpx 40rpx;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 40rpx;
+  color: #333;
+  font-size: 28rpx;
+  backdrop-filter: blur(10px);
+  width: 200rpx;
+  text-align: center;
+}
+
+/* 标题栏样式 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  margin-top: 90rpx;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+.back-button {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  font-size: 40rpx;
+  color: #333;
+  font-weight: 300;
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+} 

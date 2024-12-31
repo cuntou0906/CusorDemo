@@ -61,6 +61,9 @@ Page({
     if (newAngle < 0) newAngle += 360;
     if (newAngle >= 360) newAngle -= 360;
     
+    // 精确到0.1度
+    newAngle = Math.round(newAngle * 10) / 10;
+    
     // 更新对应游标的角度
     this.setData({
       [this.data.touching]: newAngle
@@ -85,12 +88,15 @@ Page({
     // 确保角度在 0-360 范围内
     if (angle < 0) angle += 360;
     
-    return Math.round(angle);
+    // 精确到0.1度
+    return Math.round(angle * 10) / 10;
   },
 
   getAngleDifference(angle1, angle2) {
     let diff = Math.abs(angle1 - angle2);
-    return diff > 180 ? 360 - diff : diff;
+    diff = diff > 180 ? 360 - diff : diff;
+    // 精确到0.1度
+    return Math.round(diff * 10) / 10;
   },
 
   updateAngleDiff() {

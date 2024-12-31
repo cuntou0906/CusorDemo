@@ -1,4 +1,4 @@
-<view class="flashlight-container">
+<view class="flashlight-container no-shadow">
   <!-- 手电筒显示区域 -->
   <view class="light-display">
     <!-- 手电筒外形 -->
@@ -36,7 +36,8 @@
         block-size="28"
         activeColor="#FFD700"
         backgroundColor="#333"
-        bindchange="onBrightnessChange"
+        bindchanging="onBrightnessChange"
+        show-value
       />
     </view>
 

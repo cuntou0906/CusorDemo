@@ -19,7 +19,8 @@ Page({
       '#3498DB', // 蓝色
       '#F1C40F', // 黄色
       '#E74C3C'  // 深红色
-    ]
+    ],
+    originalBrightness: 1,
   },
 
   // 显示/隐藏取色器
@@ -93,9 +94,18 @@ Page({
       keepScreenOn: true
     });
     
-    // 设置屏幕亮度为最大
-    wx.setScreenBrightness({
-      value: 1
+    // 先获取当前屏幕亮度并保存
+    wx.getScreenBrightness({
+      success: (res) => {
+        this.setData({
+          originalBrightness: res.value
+        });
+        
+        // 然后设置为最大亮度
+        wx.setScreenBrightness({
+          value: 1
+        });
+      }
     });
   },
 
@@ -104,11 +114,26 @@ Page({
     wx.setKeepScreenOn({
       keepScreenOn: false
     });
+
+    // 恢复原来的屏幕亮度
+    wx.setScreenBrightness({
+      value: this.data.originalBrightness
+    });
   },
 
   onBrightnessChange(e) {
+    const value = e.detail.value;
+    // 将百分比值转换为 0-1 之间的数值
+    const brightness = value / 100;
+    
+    // 设置屏幕亮度（实时）
+    wx.setScreenBrightness({
+      value: brightness
+    });
+    
+    // 更新状态
     this.setData({
-      brightness: e.detail.value
+      brightness: value
     });
   },
 

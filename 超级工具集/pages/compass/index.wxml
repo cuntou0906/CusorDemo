@@ -1,0 +1,45 @@
+<view class="compass-container">
+  <!-- 标题栏 -->
+  <view class="header">
+    <navigator class="back-button" open-type="navigateBack">
+    </navigator>
+    <text class="title">🧭 指南针</text>
+  </view>
+
+  <!-- 指南针主体 -->
+  <view class="compass">
+    <!-- 外圈刻度 -->
+    <view class="compass-ring">
+      <view wx:for="{{72}}" wx:key="index" class="tick" style="transform: rotate({{index * 5}}deg)">
+        <view class="tick-line {{index % 9 === 0 ? 'major' : ''}}"></view>
+        <text wx:if="{{index % 9 === 0}}" class="tick-text" style="transform: rotate(-{{index * 5}}deg)">
+          {{index === 0 ? 'N' : (index === 18 ? 'E' : (index === 36 ? 'S' : (index === 54 ? 'W' : '')))}}
+        </text>
+      </view>
+    </view>
+
+    <!-- 指针 -->
+    <view class="compass-pointer" style="transform: rotate({{-direction}}deg)">
+      <view class="pointer-north"></view>
+      <view class="pointer-south"></view>
+    </view>
+
+    <!-- 中心点 -->
+    <view class="compass-center"></view>
+  </view>
+
+  <!-- 方向信息 -->
+  <view class="direction-info">
+    <text class="heading">{{heading}}</text>
+    <text class="degrees">{{direction}}°</text>
+  </view>
+
+  <!-- 校准按钮 -->
+  <view class="calibrate-button" bindtap="calibrateCompass">
+    校准指南针
+  </view>
+  <!-- 帮助按钮 -->
+  <view class="help-button" bindtap="showHelp">
+    帮助
+  </view>
+</view> 

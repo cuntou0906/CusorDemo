@@ -1,12 +1,15 @@
+<!-- 添加标题 -->
+<view class="title">📐 电子量角器</view>
+
 <view class="protractor-container">
   <!-- 量角器部分 -->
   <view class="protractor-section">
     <view class="protractor">
       <view class="circle">
         <!-- 刻度线 - 每1度一个刻度，从上方0度开始，顺时针旋转180度 -->
-        <view wx:for="{{360}}" wx:key="index" class="tick" style="transform: rotate({{(index + 180) % 360}}deg)">
+        <view wx:for="{{360}}" wx:key="index" class="tick" style="transform: rotate({{(index ) % 360}}deg)">
           <view class="tick-line {{index % 90 === 0 ? 'major' : (index % 10 === 0 ? 'medium' : '')}}"></view>
-          <text wx:if="{{index % 30 === 0}}" class="tick-text" style="transform: rotate(-{{(index + 180) % 360}}deg)">{{index}}°</text>
+          <text wx:if="{{index % 30 === 0}}" class="tick-text" style="transform: rotate(-{{(index ) % 360}}deg)">{{index}}°</text>
         </view>
         
         <!-- 游标 - 添加180度的偏移 -->

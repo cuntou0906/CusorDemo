@@ -36,8 +36,8 @@ Page({
         id: 'compass',
         icon: '🧭',
         name: '指南针',
-        description: '敬请期待',
-        developed: false
+        description: '电子指南针工具',
+        developed: true
       },
       {
         id: 'level',

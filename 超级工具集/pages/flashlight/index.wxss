@@ -84,7 +84,7 @@
 /* 光束效果 */
 .light-beam {
   position: absolute;
-  top: 15%;
+  top: 0;
   left: 50%;
   width: 200vh;
   height: 200vh;
@@ -281,4 +281,8 @@
   border-radius: 8rpx;
   border: 2rpx solid rgba(255, 255, 255, 0.2);
   /* 移除cursor: pointer */
+}
+
+.no-shadow {
+  box-shadow: none !important;
 } 

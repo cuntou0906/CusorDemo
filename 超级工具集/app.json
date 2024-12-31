@@ -3,13 +3,16 @@
     "pages/index/index",
     "pages/calculator/index",
     "pages/protractor/index",
-    "pages/flashlight/index"
+    "pages/flashlight/index",
+    "pages/compass/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "Weixin",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationStyle": "custom"
   },
+  "pageOrientation": "portrait",
   "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",

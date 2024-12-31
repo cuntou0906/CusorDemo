@@ -1,3 +1,17 @@
+/* 标题样式 */
+.title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 40rpx 0;
+  margin-top: 80rpx;
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #333;
+  z-index: 9999;
+  letter-spacing: 2rpx;
+}
+
 .protractor-container {
   height: 100vh;
   display: flex;
@@ -12,11 +26,11 @@
 
 /* 量角器部分 */
 .protractor-section {
-  height: 50vh;
+  height: 65vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 120rpx;
+  padding-top: 180rpx;
   box-sizing: border-box;
 }
 
@@ -155,11 +169,11 @@
 
 /* 角度显示部分 */
 .display-section {
-  height: 50vh;
+  height: 35vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 40rpx;
+  padding: 20rpx 40rpx;
   box-sizing: border-box;
 }
 
@@ -169,7 +183,7 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20rpx;
-  padding: 40rpx;
+  padding: 20rpx;
   box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
 }
 
@@ -177,8 +191,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40rpx;
-  margin: 20rpx 0;
+  padding: 20rpx;
+  margin: 10rpx 0;
   border-radius: 16rpx;
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
