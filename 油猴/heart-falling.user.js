@@ -5,6 +5,7 @@
 // @description  为任意网页添加红色爱心飘落效果
 // @author       Your name
 // @match        *://*/*
+// @exclude      *://cuntou0906.github.io/*
 // @grant        GM_addStyle
 // ==/UserScript==
 
@@ -40,7 +41,7 @@
         heart.textContent = '❤';
         heart.style.left = Math.random() * 100 + 'vw';
         heart.style.animationDuration = (Math.random() * 3 + 2) + 's'; // 2-5秒
-        
+
         // 添加到页面
         document.body.appendChild(heart);
 
