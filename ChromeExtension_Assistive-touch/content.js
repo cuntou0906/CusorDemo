@@ -328,3 +328,21 @@ function closeMenu() {
 
 // Initialize the menu display state
 menu.style.display = 'none';
+
+let assistiveTouchVisible = false;
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.action === 'toggleAssistiveTouch') {
+        assistiveTouchVisible = !assistiveTouchVisible;
+        toggleAssistiveTouch(assistiveTouchVisible);
+    }
+});
+
+function toggleAssistiveTouch(visible) {
+    const assistiveTouchButton = document.getElementById('assistiveTouchButton');
+    if (visible) {
+        assistiveTouchButton.style.display = 'block';
+    } else {
+        assistiveTouchButton.style.display = 'none';
+    }
+}
