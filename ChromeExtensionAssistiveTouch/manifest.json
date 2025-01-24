@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Assistive Touch",
+  "name": "iOS Assistive Touch",
   "version": "1.0",
-  "description": "A draggable assistive touch button with a menu.",
+  "description": "Insert iOS-like Assistive Touch on any webpage.",
+  "permissions": ["activeTab", "storage"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -11,10 +12,6 @@
       "128": "icons/Logo.png"
     }
   },
-  "permissions": [
-    "activeTab",
-    "scripting"
-  ],
   "background": {
     "service_worker": "background.js"
   },
@@ -24,10 +21,9 @@
       "js": ["content.js"]
     }
   ],
-  "web_accessible_resources": [
-    {
-      "resources": ["popup.js"],
-      "matches": ["<all_urls>"]
-    }
-  ]
-}
+  "icons": {
+    "16": "icons/Logo.png",
+    "48": "icons/Logo.png",
+    "128": "icons/Logo.png"
+  }
+} 
